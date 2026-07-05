@@ -1,5 +1,3 @@
-"""Shared plotting and clustering helpers for scripts and the Streamlit dashboard."""
-
 import sys
 from pathlib import Path
 
@@ -23,7 +21,7 @@ from config import CLEAN_CLAIMS_CSV, FEATURE_COLUMNS, KMEANS_SAMPLE_SIZE, N_CLUS
 
 
 def enrich_time_columns(df: pd.DataFrame) -> pd.DataFrame:
-    """Add claim_year, claim_month, and claim_period for time-series plots."""
+
     df = df.copy()
 
     if "claim_period" in df.columns:
@@ -87,7 +85,7 @@ def run_kmeans(
 
 
 def plot_clusters(df: pd.DataFrame, ax=None, sample_size: int = KMEANS_SAMPLE_SIZE):
-    """2D PCA scatter colored by KMeans cluster."""
+
     if ax is None:
         _, ax = plt.subplots(figsize=(8, 5))
 
@@ -120,7 +118,7 @@ def plot_clusters(df: pd.DataFrame, ax=None, sample_size: int = KMEANS_SAMPLE_SI
 
 
 def plot_provider_monthly_trend(df: pd.DataFrame, ax=None, top_n: int = 5):
-    """Monthly claim volume for top providers."""
+
     if ax is None:
         _, ax = plt.subplots(figsize=(9, 4))
 
@@ -152,7 +150,7 @@ def plot_provider_monthly_trend(df: pd.DataFrame, ax=None, top_n: int = 5):
 
 
 def plot_anomaly_spikes(df: pd.DataFrame, ax=None):
-    """Monthly anomaly counts to highlight spikes over time."""
+
     if ax is None:
         _, ax = plt.subplots(figsize=(9, 4))
 
@@ -195,7 +193,7 @@ def plot_anomaly_spikes(df: pd.DataFrame, ax=None):
 
 
 def plot_cluster_summary(df: pd.DataFrame, ax=None):
-    """Bar chart of cluster sizes."""
+
     if ax is None:
         _, ax = plt.subplots(figsize=(6, 4))
 
